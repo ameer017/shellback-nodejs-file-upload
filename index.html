@@ -68,10 +68,13 @@
 
         const sendFiles = async () => {
             // Object 
+            // point to the file uploaded
             const myFiles = document.getElementById('myFiles').files
 
+            // make use of the form
             const formData = new FormData()
 
+            
             Object.keys(myFiles).forEach(key => {
                 formData.append(myFiles.item(key).name, myFiles.item(key))
             })

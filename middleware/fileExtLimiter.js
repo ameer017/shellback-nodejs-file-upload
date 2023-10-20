@@ -5,6 +5,7 @@ const fileExtLimiter = (allowedExtArray) => {
         const files = req.files
 
         const fileExtensions = []
+        
         Object.keys(files).forEach(key => {
             fileExtensions.push(path.extname(files[key].name))
         })

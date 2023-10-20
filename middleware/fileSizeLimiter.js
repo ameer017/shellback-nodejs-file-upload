@@ -1,4 +1,4 @@
-const MB = 2 //5mb
+const MB = 2 //2mb
 const FILE_SIZE_LIMIT = MB * 1024 * 1024;
 
 const fileSizeLimiter = (req, res, next) => {
@@ -13,6 +13,7 @@ const fileSizeLimiter = (req, res, next) => {
         }
     })
 
+    // if its more than one or not
     if(filesOverLimit.length) {
         const properVerb = filesOverLimit.length > 1 ? 'are' : 'is';
 
@@ -23,7 +24,6 @@ const fileSizeLimiter = (req, res, next) => {
         sentence.replace(/,(?=[^,]*$)/, " and")
 
         // The HTTP 413 Content Too Large response status code indicates that the request entity is larger than limits defined by server
-        
         return res.status(413).json({ status: "error", message })
     }
 
